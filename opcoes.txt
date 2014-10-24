@@ -1,0 +1,31 @@
+Descrição das opções tomadas:
+
+Optámos por criar um autómato que traduz as unidades em numeração romana para numeração árabe, posteriormente fizemos o mesmo para as dezenas, centenas e milhares. Para a tradução de um número completo criamos um autómato que resulta da concatenação dos quatro supra-mencionados - transdutor "num_R_A".
+
+O transdutor que faz o processo inverso foi criado a partir da inversão do anterior ("num_R_A"), através da inversão dos autómatos que traduzem unidades, dezenas, centenas e milhares. Este transdutor chama-se "num_A_R".
+
+Para a tradução das datas, utilizámos os transdutores criados anteriormente, da seguinte forma: 
+
+- o autómato que traduz os dias, bem como o que traduz os meses resultam da concatenação do autómato que traduz dezenas, com o que traduz unidades;
+- o autómato que traduz os anos, resulta da concatenação do que traduz milhares, centenas, dezenas e unidades;
+- foi criado um autómato especificamente para reconhecer o símbolo "/";
+- finalmente, o transdutor das datas resulta da concatenação de dias/meses/anos (um transdutor de datas romanas para árabes e outro para o processo inverso).
+
+Convenções:
+
+Neste projecto utilizámos a seguinte nomenclatura:
+
+- "R-A" ou "R_A" : romano para árabe;
+- "A-R" ou "A_R" : árabe para romano;
+- "num_A_R" : números árabes para romanos;
+- "num_R_A" : números romanos para árabes;
+- "dat_A_R" : datas árabes para romanos;
+- "dat_R_A" : datas romanos para árabes;
+- "result"* : resultados dos testes;
+- "test"/"teste" : testes.
+
+Script:
+
+O script (run.sh) que desenvolvemos começa por eliminar todos os sub-directórios da directoria do projecto, excepto o directório "source" e "test" onde se situam os ficheiros ".txt" que são compilados, gerando os ficheiros ".fsm". Posteriormente cria um directório de resultados (results), um directório de trabalho (workdir) e seus sub-directórios (num_A_R, num_R_A, dat_A_R, dat_R_A e compiled_tests) onde são colocados os ficheiros que resultam da compilação, concatenação e/ou inversão dos ficheiros ".txt".
+
+Finalmente executam-se os testes, cujos resultados são colocados na pasta results. A representação gráfica dos transdutores situa-se nas respectivas pastas (ex: o transdutor números romanos para árabes situa-se na pasta "num_R_A" da directoria de trabalho "workdir").

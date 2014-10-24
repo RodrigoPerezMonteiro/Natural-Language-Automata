@@ -1,0 +1,8 @@
+comentarios.txt
+
+Correcção e viabilidade
+
+Os transdutores criados implementam completamente a solução proposta no enunciado, nomeadamente a tradução de números de árabe para romano e vice-versa bem como a tradução de datas de árabe para romano e vice-versa (formato DD/MM/AAAA).
+
+Foram feitos testes exaustivos aos autómatos criados cujos resultados demonstram um nível de eficácia de 100%, no entanto, a eficiência da solução talvez pudesse ser melhor, uma vez que, para tornarmos o nosso trabalho mais simples, optámos por criar o autómato que traduz numeros árabes para romanos a partir daquele que traduz números romanos para árabes, ou seja, não criamos um de raíz para esse efeito, o que cria um efeito de backtrack em algumas das transições realizadas por esse autómato, que, apesar de produzir resultados correctos, leva mais tempo a chegar ao estado de aceitação/final.
+
